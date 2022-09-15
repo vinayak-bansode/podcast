@@ -1,0 +1,24 @@
+apply plugin: "com.android.library"
+apply from: "../common.gradle"
+
+android {
+
+    packagingOptions {
+        resources {
+            excludes += ['META-INF/LICENSE.txt', 'META-INF/NOTICE.txt']
+        }
+    }
+    lint {
+        abortOnError true
+        checkDependencies true
+        checkGeneratedSources true
+        disable 'GradleDependency', 'ObsoleteLintCustomCheck', 'CheckResult', 'UnusedAttribute', 'BatteryLife', 'InflateParams', 'RestrictedApi', 'TrustAllX509TrustManager', 'ExportedReceiver', 'AllowBackup', 'VectorDrawableCompat', 'StaticFieldLeak', 'UseCompoundDrawables', 'NestedWeights', 'Overdraw', 'UselessParent', 'TextFields', 'AlwaysShowAction', 'Autofill', 'ClickableViewAccessibility', 'ContentDescription', 'KeyboardInaccessibleWidget', 'LabelFor', 'SetTextI18n', 'HardcodedText', 'RelativeOverlap', 'RtlCompat', 'RtlHardcoded', 'MissingMediaBrowserServiceIntentFilter', 'VectorPath', 'InvalidPeriodicWorkRequestInterval', 'InvalidPeriodicWorkRequestInterval', 'ObsoleteLintCustomCheck', 'DefaultLocale', 'UnusedAttribute', 'ParcelClassLoader', 'Typos', 'ExtraTranslation', 'ImpliedQuantity', 'CheckResult', 'PluralsCandidate', 'UnusedQuantity', 'StringFormatCount', 'TrustAllX509TrustManager', 'StaticFieldLeak', 'TypographyEllipsis', 'IconDensities', 'IconDuplicates', 'TrustAllX509TrustManager'
+        warningsAsErrors true
+    }
+}
+
+dependencies {
+    implementation project(':model')
+
+    annotationProcessor "androidx.annotation:annotation:$annotationVersion"
+}
